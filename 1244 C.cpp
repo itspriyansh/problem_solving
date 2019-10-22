@@ -7,43 +7,23 @@
  
 using namespace std;
  
-int t, a, b, c, d, k;
+ll n, p, d, w;
  
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
  
-    cin >> t;
-    while(t--)
+    cin >> n >> p >> w >> d;
+ 
+    for(int y = 0; y <= w - 1; y++)
     {
-        cin >> a >> b >> c >> d >> k;
- 
-        if(a % c == 0)
+        if(p - y * d >= 0 && (p - y * d) % w == 0 && (p - y * d) / w + y <= n)
         {
-            a = a / c;
-        }
-        else
-        {
-            a = a / c + 1;
-        }
- 
-        if(b % d == 0)
-        {
-            b = b / d;
-        }
-        else
-        {
-            b = b / d + 1;
-        }
- 
-        if(a + b <= k)
-        {
-            cout << a << " " << b << "\n";
-        }
-        else
-        {
-            cout << -1 << "\n";
+            cout << (p - y * d) / w << " " << y << " " << n - (p - y * d) / w - y << "\n";
+            return 0;
         }
     }
+ 
+    cout << -1 << "\n";
 }
