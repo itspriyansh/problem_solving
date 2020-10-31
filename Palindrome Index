@@ -1,0 +1,47 @@
+//package corejava;
+import java.util.*;
+public class Solution {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+        for (int i=0;i<n;i++) {
+            String str=input.next();
+            int answer=-1;
+            for (int j=0;j<str.length()/2;j++) {
+                if (str.charAt(j)!=str.charAt(str.length()-1-j)) {
+                    answer=100;
+                    String str1,str2;
+                    if (j==0) {
+                        str1=str.substring(j+1);    
+                        //str2=str.substring(0,str.length()-1);
+                    }
+                    else{
+                        str1=str.substring(0,j)+str.substring(j+1);
+                        //str2=str.substring(0,str.length()-i-1)+str.substring(str.length()-i);
+                        }
+                    int count=0;
+                    for (int k=0;k<str1.length()/2;k++) {
+                        if (str1.charAt(k)!=str1.charAt(str1.length()-k-1)) {
+                            count=1;
+                            break;
+                        }
+                    }
+                    if (count==1) {
+                        System.out.println(str.length()-j-1);
+                        break;
+                    }
+                    else {
+                        System.out.println(j);
+                        break;
+                    }
+                }
+            }
+            if (answer==-1) {
+                System.out.println(-1);
+            }
+        }
+    }
+
+}
