@@ -1,0 +1,10 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+first,second,n=input().split()
+first=int(first)
+second=int(second)
+n=int(n)
+for i in range (n-1):
+    output=first+(second*second)
+    first=second
+    second=output
+print(first)
